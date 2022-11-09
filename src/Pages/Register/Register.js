@@ -25,7 +25,7 @@ const Register = () => {
             <div className="hero w-full my-20">
             <div className="hero-content grid gap-20 md:grid-cols-2 flex-col lg:flex-row">
                 <div className="text-center lg:text-left">
-                    <img className='w-11/12' src={img} alt="" />
+                    <img className='w-50rem rounded-lg' src={img} alt="" />
                     <p className='text-2xl font-bold text-center'>L O N D O N_E D I T O R I A L<br/>W E D D I N G_P H O T O G R A P H E R</p>
                 </div>
                 <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 py-20">
