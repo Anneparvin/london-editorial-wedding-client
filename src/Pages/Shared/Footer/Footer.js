@@ -4,8 +4,8 @@ const Footer = () => {
     return (
         <div>
             <footer className="footer footer-center p-16 bg-black text-primary-content text-white ">
-  <div className='w-16 h-16 rounded-lg'>
-    <img src={logo} alt=""/>
+  <div>
+    <img className='w-64 h-32 rounded-lg' src={logo} alt=""/>
     <p className="font-bold">
       London_Editorial_Wedding_Photographer <br/>
     </p> 
