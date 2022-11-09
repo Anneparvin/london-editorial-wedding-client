@@ -1,6 +1,6 @@
 import React from 'react';
 
-const BannerCard = () => {
+const TopImage = () => {
     return (
         <div>
             
@@ -8,4 +8,4 @@ const BannerCard = () => {
     );
 };
 
-export default BannerCard;
+export default TopImage;
