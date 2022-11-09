@@ -6,8 +6,9 @@ import TopImage from '../TopImage/TopImage';
 const Home = () => {
     return (
         <div>
-            <TopImage></TopImage>
+            
             <Banner></Banner>
+            <TopImage></TopImage>
             <Services></Services>
         </div>
     );
