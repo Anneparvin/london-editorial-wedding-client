@@ -5,12 +5,13 @@ import Register from "../../Pages/Register/Register";
 import Blog from "../../Pages/Blog/Blog";
 import Orders from "../../Pages/Orders/Orders";
 import Checkout from "../../Pages/Checkout/Checkout";
+import MyReviews from "../../Pages/MyReviews/MyReviews";
+
 
 const { createBrowserRouter } = require("react-router-dom");
 
 
 const router = createBrowserRouter([
-
     {
         path:'/',
         element:<Main></Main>,
@@ -37,8 +38,12 @@ const router = createBrowserRouter([
                 loader: ({params})=> fetch(`http://localhost:5000/services/${params.id}`)
             },
             {
-                path:'/Orders',
+                path:'/orders',
                 element:<Orders></Orders>
+            },
+            {
+                path:'/myreviews',
+                element:<MyReviews></MyReviews>
             }
         ]
     }

@@ -39,10 +39,12 @@ you have to use location and from location.if you are not logged in you can't go
 
 ### `Github link`
 
-my github server site link: 
-my github client site link:
+my github server site link: https://github.com/Porgramming-Hero-web-course/b6a11-service-review-server-side-Anneparvin(private repo)
+
+my github client site link:https://github.com/Anneparvin/london-editorial-wedding-client(public repo)
 
 ### `deployment link`
 
-my server site versel link: 
-my server site firebase link: 
+my server site vercel link:  https://y-seven-mu.vercel.app
+
+my server site firebase link:https://wedding-photographer-7581c.web.app/ 

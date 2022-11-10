@@ -3,12 +3,31 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../../Assets/wed-image/wed-logo.jpg';
 
-const Header = () => {
-   
+const Header = (user, logOut) => {
+    const handleLogOut = () => {
+        logOut()
+            .then()
+            .catch();
+    }
 
     const menuItems = <>
     <li className='font-semibold'><Link to='/'>Home</Link></li>
-       
+    {
+            user?.email ?
+                <>
+                    <li className='font-semibold'><Link to='/orders'>Orders</Link></li>
+                    <li className='font-semibold'>
+                        <button onClick={ handleLogOut } className='btn-ghost'>Sign Out</button>
+                    </li>
+                </>
+                :
+                <div>
+                    <li className='font-semibold'><Link to='/login'>Login</Link></li>
+                <li className='font-semibold'><Link to='/register'>Register</Link></li>
+                <li className='font-semibold'><Link to='/myreviews'>My Reviews</Link></li>
+                </div>
+                
+        }
 
 
    

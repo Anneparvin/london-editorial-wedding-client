@@ -2,13 +2,14 @@ import React, { useContext } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import img from '../../Assets/wed-image/wed-logo.jpg';
 import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
+ import useTitle from '../../hooks/useTitle';
 
 const Login = () => {
     const { login } = useContext(AuthContext);
-
+     useTitle('Login')
     const location = useLocation();
     const navigate = useNavigate();
-
+    
     const from = location.state?.from?.pathname || '/';
 
     const handleLogin = event => {
@@ -16,14 +17,16 @@ const Login = () => {
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
-
+            
         login(email, password)
+    
         .then(result =>{
             const user=result.user;
 
             const currentUser ={
                 email: user.email
             }
+            
             console.log(currentUser);
         })
         .catch(error => console.log(error));
