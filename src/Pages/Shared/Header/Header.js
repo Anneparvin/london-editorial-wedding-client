@@ -1,16 +1,20 @@
+// import userEvent from '@testing-library/user-event';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../../Assets/wed-image/wed-logo.jpg';
 
 const Header = () => {
+   
 
     const menuItems = <>
     <li className='font-semibold'><Link to='/'>Home</Link></li>
-    <li className='font-semibold'><Link to='/login'>Login</Link></li>
-    <li className='font-semibold'><Link to='/register'>Register</Link></li>
-    <li className='font-semibold'><Link to='/blog'>Blog</Link></li>
-    </>
+       
 
+
+   
+    </>
+    
+    
     return (
         <div>
             <div className="navbar bg-black text-white p-16 rounded-lg">

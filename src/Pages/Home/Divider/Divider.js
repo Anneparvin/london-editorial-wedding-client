@@ -5,7 +5,7 @@ const Divider = () => {
     return (
 
 <div className="flex flex-col w-full">
-    <h1 className='text-6xl text-center mt-16'>OUR CLIENT's THOUGTH's</h1>
+    <h1 className='text-6xl text-center mt-16'>OUR CLIENT's THOUGHT's</h1>
     <p className='text-bold text-center text-orange-600 text-2xl'>The moments of love, silliness and those moments of complete and utter euphoria.. The missed moments and the love shared between two families.</p>
   <div className="grid h-50 p-12 card bg-base-300 rounded-box place-items-center mt-12">
     <img className='w-64 rounded-lg' src={div1} alt=''/>
