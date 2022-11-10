@@ -3,7 +3,7 @@ import logo from '../../../Assets/wed-image/wed-logo.jpg';
 const Footer = () => {
     return (
         <div>
-            <footer className="footer footer-center p-16 bg-black text-primary-content text-white rounded-lg">
+            <footer className="footer footer-center mt-12 p-16 bg-black text-primary-content text-white rounded-lg">
   <div>
     <img className='w-64 h-32 rounded-lg' src={logo} alt=""/>
     <p className="font-bold">
