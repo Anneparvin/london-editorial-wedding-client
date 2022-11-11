@@ -3,7 +3,7 @@ import { useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
 
 const Checkout = () => {
-        const { _id, title, price } = useLoaderData();
+        const { _id, title, price, img} = useLoaderData();
          const { user } = useContext(AuthContext);
     
          const handlePlaceOrder = event => {
@@ -22,11 +22,31 @@ const Checkout = () => {
                 email,
                 phone,
                 message
-            }  
+            } 
+            fetch('http://localhost:5000/orders', {
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json',
+                    //  authorization: `Bearer ${localStorage.getItem('genius-token')}`
+                },
+                body: JSON.stringify(order)
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data)
+                    if(data.acknowledged){
+                        alert('Order placed successfully')
+                        form.reset();
+                        
+                    }
+                })
+                .catch(er => console.error(er));
+     
         }
     return (
         <div>
             <form onSubmit={handlePlaceOrder}>
+                <img className='w-40rem h-25rem' src={img} alt=''/>
                 <h2 className="text-4xl">You are about to order: {title}</h2>
                 <h4 className="text-3xl">Price: {price}</h4>
                 <div className='grid grid-cols-1 lg:grid-cols-2 gap-4'>
