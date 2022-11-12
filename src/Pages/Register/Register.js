@@ -3,6 +3,7 @@ import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
 import img from '../../Assets/wed-image/wed-logo.jpg';
 import { Link } from 'react-router-dom';
 import useTitle from '../../hooks/useTitle';
+import { setAuthToken } from '../../api/auth';
 
 const Register = () => {
         const {createUser} = useContext(AuthContext);
@@ -18,6 +19,7 @@ const Register = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                setAuthToken(user);
             })
             .catch(err => console.error(err));
         }

@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from "react";
-import {createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut} from 'firebase/auth';
+import {createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut} from 'firebase/auth';
 import app from "../../firebase/firebase.config";
 import useTitle from "../../hooks/useTitle";
 
@@ -7,10 +7,13 @@ import useTitle from "../../hooks/useTitle";
 export const AuthContext = createContext();
 const auth = getAuth(app);
 
+const googleProvider = new GoogleAuthProvider();
+
 const AuthProvider= ({children}) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
     useTitle('AuthProvider')
+
     const createUser = (email, password) => {
         setLoading(true);
         return createUserWithEmailAndPassword(auth, email, password);
@@ -21,8 +24,13 @@ const AuthProvider= ({children}) => {
         return signInWithEmailAndPassword(auth, email, password);
     }
 
+    const googleSignIn = () =>{
+        setLoading(true);
+        return signInWithPopup(auth, googleProvider);
+    }
+
     const logOut = () =>{
-        localStorage.removeItem('genius-token');
+        localStorage.removeItem('londonWeddb');
         return signOut(auth);
     }
 
@@ -34,7 +42,7 @@ const AuthProvider= ({children}) => {
         });
 
         return () =>{
-            return unsubscribe();
+             unsubscribe();
         }
     }, [])
 
@@ -42,7 +50,8 @@ const AuthProvider= ({children}) => {
         user, 
         loading,
         createUser, 
-        login, 
+        login,
+        googleSignIn, 
         logOut
     }
 

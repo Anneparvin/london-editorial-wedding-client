@@ -51,7 +51,7 @@ const Header = (user, logOut) => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <button className="btn btn-outline btn-white">Appointment</button>
+                <button className="btn btn-white bg-warning">Appointment</button>
             </div>
         </div>
         </div>

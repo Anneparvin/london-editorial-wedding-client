@@ -12,7 +12,7 @@ const ServiceCard = ({service}) => {
                 <h2 className="card-title text-4xl text-bold">{title}</h2>
                 <p className='text-2xl font-semibold'>Rating:{rating}</p>
                 <p className='text-2xl font-semibold'>Date:{date}</p>
-                <p className='text-2xl font-semibold'>Description:{description.split(0,3)}</p>
+                <p className='text-2xl font-semibold'>Description:{description.slice(0,20)}</p>
                 <p className='text-2xl font-semibold'>Price:${price}</p>
                 <div className="card-actions justify-end">
                     <Link to={`/checkout/${_id}`}>

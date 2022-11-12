@@ -1,16 +1,15 @@
 import React, { useContext } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link} from 'react-router-dom';
+import { setAuthToken } from '../../api/auth';
 import img from '../../Assets/wed-image/wed-logo.jpg';
 import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
  import useTitle from '../../hooks/useTitle';
+import SocialLogin from '../Shared/SocialLogin/SocialLogin';
 
 const Login = () => {
     const { login } = useContext(AuthContext);
-     useTitle('Login')
-    const location = useLocation();
-    const navigate = useNavigate();
-    
-    const from = location.state?.from?.pathname || '/';
+    useTitle('Login')
+
 
     const handleLogin = event => {
         event.preventDefault();
@@ -22,29 +21,8 @@ const Login = () => {
     
         .then(result =>{
             const user=result.user;
-
-            const currentUser ={
-                email: user.email
-            }
-            
-            console.log(currentUser);
-        
-
-        // get jwt token
-        fetch('http://localhost:5000/jwt', {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(currentUser)
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data);
-                localStorage.setItem('londonWeddb', data.token);
-                navigate(from, { replace: true });
-            });
-        
+            console.log(user);
+            setAuthToken(user);
     })
         .catch(error => console.log(error));
     }
@@ -78,6 +56,7 @@ const Login = () => {
                         </div>
                     </form>
                     <p className='text-center'>New to london_wedding_photography <Link className='text-orange-600 font-bold' to="/register">Register</Link> </p>
+                    <SocialLogin></SocialLogin>
                 </div>
             </div>
         </div>
