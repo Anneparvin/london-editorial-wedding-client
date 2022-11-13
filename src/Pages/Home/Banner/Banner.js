@@ -13,7 +13,7 @@ const Banner = () => {
             <img src={img1} alt='' className="w-full" />
             <div>
             <p className='font-bold bg-orange-600 text-white text-2xl'>L O N D O N<br/>_E D I T O R I A L<br/>_W E D D I N G<br/>_P H O T O G R A P H E R</p>
-            <img className='w-64 h-full' src={wedlogo} alt=''/>
+            <img className='w-60 h-4/5' src={wedlogo} alt=''/>
             </div>
            <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
             
@@ -26,7 +26,7 @@ const Banner = () => {
           <img src={img2} alt='' className="w-full" />
           <div>
             <p className='font-bold bg-orange-600 text-white text-2xl'>L O N D O N<br/>_E D I T O R I A L<br/>_W E D D I N G<br/>_P H O T O G R A P H E R</p>
-            <img className='w-64 h-full' src={wedlogo} alt=''/>
+            <img className='w-60 h-4/5' src={wedlogo} alt=''/>
             </div>
           <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
             <a href="#slide1" className="btn btn-circle">❮</a> 
@@ -37,7 +37,7 @@ const Banner = () => {
           <img src={img3} alt='' className="w-full" />
           <div>
             <p className='font-bold bg-orange-600 text-white text-2xl'>L O N D O N<br/>_E D I T O R I A L<br/>_W E D D I N G<br/>_P H O T O G R A P H E R</p>
-            <img className='w-64 h-full' src={wedlogo} alt=''/>
+            <img className='w-60 h-4/5' src={wedlogo} alt=''/>
             </div>
           <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
             <a href="#slide2" className="btn btn-circle">❮</a> 
@@ -48,7 +48,7 @@ const Banner = () => {
           <img src={img4} alt='' className="w-full" />
           <div>
             <p className='font-bold bg-orange-600 text-white text-2xl'>L O N D O N<br/>_E D I T O R I A L<br/>_W E D D I N G<br/>_P H O T O G R A P H E R</p>
-            <img className='w-64 h-full' src={wedlogo} alt=''/>
+            <img className='w-60 h-4/5' src={wedlogo} alt=''/>
             </div>
           <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
             <a href="#slide3" className="btn btn-circle">❮</a> 

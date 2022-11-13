@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
 import { Link} from 'react-router-dom';
-import { setAuthToken } from '../../api/auth';
 import img from '../../Assets/wed-image/wed-logo.jpg';
 import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
  import useTitle from '../../hooks/useTitle';
@@ -21,9 +20,27 @@ const Login = () => {
     
         .then(result =>{
             const user=result.user;
-            console.log(user);
-            setAuthToken(user);
+            const currentUser = {
+                email:user.email
+            }
+            console.log(currentUser);
+             // / get jwt token
+             fetch('http://localhost:5000/jwt', {
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(currentUser)
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+                    localStorage.setItem('londonWeddb', data.token);
+                }); 
+
+           
     })
+    
         .catch(error => console.log(error));
     }
     return (

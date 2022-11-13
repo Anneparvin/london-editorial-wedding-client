@@ -1,9 +1,9 @@
-import userEvent from "@testing-library/user-event"
+
 
 export const setAuthToken =(user) =>{
 
     const currentUser ={
-        email: userEvent.email
+        email: user.email
     }
      // get jwt token
      fetch('http://localhost:5000/jwt', {

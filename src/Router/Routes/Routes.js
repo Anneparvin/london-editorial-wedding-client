@@ -3,9 +3,9 @@ import Home from "../../Pages/Home/Home/Home";
 import Login from "../../Pages/Login/Login";
 import Register from "../../Pages/Register/Register";
 import Blog from "../../Pages/Blog/Blog";
-import Orders from "../../Pages/Orders/Orders";
-import Checkout from "../../Pages/Checkout/Checkout";
-import MyReviews from "../../Pages/MyReviews/MyReviews";
+import ServiceDetails from "../../Pages/ServiceDetails/ServiceDetails";
+import ServiceSection from "../../Pages/ServiceSection/ServiceSection";
+import ReviewSection from "../../Pages/ReviewSection/ReviewSection";
 
 
 const { createBrowserRouter } = require("react-router-dom");
@@ -33,17 +33,17 @@ const router = createBrowserRouter([
                 element:<Blog></Blog>
             },
             {
-                path:'/checkout/:id',
-                element:<Checkout></Checkout>,
+                path:'/serviceDetails/:id',
+                element:<ServiceDetails></ServiceDetails>,
                 loader: ({params})=> fetch(`http://localhost:5000/services/${params.id}`)
             },
             {
-                path:'/orders',
-                element:<Orders></Orders>
+                path:'/serviceSection',
+                element:<ServiceSection></ServiceSection>
             },
             {
-                path:'/myreviews',
-                element:<MyReviews></MyReviews>
+                path:'/reviewSection',
+                element:<ReviewSection></ReviewSection>
             }
         ]
     }

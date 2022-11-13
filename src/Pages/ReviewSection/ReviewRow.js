@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
-const OrderRow = ({order, handleDelete,handleStatusUpdate }) => {
-
-    const { _id, serviceName, phone, customer, price, service, status } = order;
+const ReviewRow = ({ review, handleDelete, handleStatusUpdate }) => {
+    const { _id, serviceName, phone, customer, price, service, status } = review;
     const [orderService, setOrderService] = useState({})
 
     useEffect(() => {
@@ -10,6 +9,9 @@ const OrderRow = ({order, handleDelete,handleStatusUpdate }) => {
             .then(res => res.json())
             .then(data => setOrderService(data));
     }, [service])
+
+    
+
     return (
         <tr>
             <th>
@@ -47,5 +49,4 @@ const OrderRow = ({order, handleDelete,handleStatusUpdate }) => {
     );
 };
 
-
-export default OrderRow;
+export default ReviewRow;

@@ -47,4 +47,4 @@ my github client site link:https://github.com/Anneparvin/london-editorial-weddin
 
 my server site vercel link:  https://y-seven-mu.vercel.app
 
-my server site firebase link:https://wedding-photographer-7581c.web.app/ 
+my client site firebase link:https://wedding-photographer-7581c.web.app/ 
