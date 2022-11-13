@@ -49,7 +49,7 @@ const Checkout = () => {
     return (
         <div>
             <form onSubmit={handlePlaceReview}>
-                <h2 className="text-4xl mt-12 p-12 text-center font-bold">You are wants to review: {title}</h2>
+                <h2 className="text-4xl mt-12 p-12 text-center font-bold">Review's From Client's: {title}</h2>
                 <h4 className="text-2xl text-center font-bold">Price: {price}</h4>
                 <div className='grid grid-cols-1 lg:grid-cols-2 gap-4 mt-4'>
                     <input name="firstName" type="text" placeholder="First Name" className="input input-ghost w-full  input-bordered" />

@@ -34,6 +34,7 @@ const ReviewSection = () => {
             })
                 .then(res => res.json())
                 .then(data => {
+                    console.log(data);
                     if (data.deletedCount > 0) {
                         alert('deleted successfully');
                         const remaining = reviews.filter(review => review._id !== id);

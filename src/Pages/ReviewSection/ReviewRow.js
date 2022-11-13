@@ -1,16 +1,15 @@
 import React, { useEffect, useState } from 'react';
 
 const ReviewRow = ({ review, handleDelete, handleStatusUpdate }) => {
-    const { _id, serviceName, phone, customer, price, service, status } = review;
-    const [orderService, setOrderService] = useState({})
+    const { _id, email, phone, customer, price, service, status } = review;
+    const [reviewService, setReviewService] = useState({})
 
     useEffect(() => {
         fetch(`http://localhost:5000/services/${service}`)
             .then(res => res.json())
-            .then(data => setOrderService(data));
+            .then(data => setReviewService(data));
     }, [service])
 
-    
 
     return (
         <tr>
@@ -24,8 +23,8 @@ const ReviewRow = ({ review, handleDelete, handleStatusUpdate }) => {
                     <div className="avatar">
                         <div className="rounded w-24 h-24">
                             {
-                                orderService?.img && 
-                                <img src={orderService.img} alt="Avatar Tailwind CSS Component" />}
+                                reviewService?.img && 
+                                <img src={reviewService.img} alt="Avatar Tailwind CSS Component" />}
                         </div>
                     </div>
                     <div>
@@ -35,11 +34,10 @@ const ReviewRow = ({ review, handleDelete, handleStatusUpdate }) => {
                 </div>
             </td>
             <td>
-                {serviceName}
-                <br />
-                <span className="badge badge-ghost badge-sm">${price}</span>
+                {email}
+                
             </td>
-            <td>Purple</td>
+            <td>{phone}</td>
             <th>
                 <button 
                 onClick={() => handleStatusUpdate(_id)}

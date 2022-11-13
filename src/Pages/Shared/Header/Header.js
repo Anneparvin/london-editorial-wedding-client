@@ -1,9 +1,11 @@
 // import userEvent from '@testing-library/user-event';
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../../Assets/wed-image/wed-logo.jpg';
+import { AuthContext } from '../../../Contexts/AuthProvider/AuthProvider';
 
-const Header = (user, logOut) => {
+const Header = () => {
+    const {user, logOut} = useContext(AuthContext)
     const handleLogOut = () => {
         logOut()
             .then()
@@ -15,7 +17,6 @@ const Header = (user, logOut) => {
     {
             user?.email ?
                 <>
-            
                     <li className='font-semibold'><Link to='/register'>Register</Link></li>
                     <li className='font-semibold'><Link to='/reviewSection'>My Reviews</Link></li>
                     <li className='font-semibold'><Link to='/serviceSection'>My Services</Link></li>
@@ -26,10 +27,7 @@ const Header = (user, logOut) => {
                 :
                 <li className='font-semibold'><Link to='/login'>Login</Link></li>
     } 
-                
                 </>
-
-    
     return (
         <div>
             <div className="navbar bg-black text-white p-16 rounded-lg">
