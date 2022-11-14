@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 const ReviewRow = ({ review, handleDelete, handleStatusUpdate }) => {
-    const { _id, email, phone, customer, price, service, status } = review;
+    const { _id, email, phone, customer, price, service, status,message } = review;
     const [reviewService, setReviewService] = useState({})
 
     useEffect(() => {
@@ -29,15 +29,18 @@ const ReviewRow = ({ review, handleDelete, handleStatusUpdate }) => {
                     </div>
                     <div>
                         <div className="font-bold">{customer}</div>
-                        <div className="text-sm opacity-50">{phone}</div>
+                        <div className="text-sm opacity-50">{price}</div>
                     </div>
                 </div>
             </td>
             <td>
-                {email}
+               <p className="font-bold">{email}</p> 
+               <p className="text-sm opacity-50">{phone}</p> 
                 
             </td>
-            <td>{phone}</td>
+            <td>
+            {message}
+            </td>
             <th>
                 <button 
                 onClick={() => handleStatusUpdate(_id)}

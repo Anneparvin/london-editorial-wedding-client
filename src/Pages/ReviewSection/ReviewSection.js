@@ -5,6 +5,7 @@ import ReviewRow from "./ReviewRow";
 const ReviewSection = () => {
     const { user, logOut } = useContext(AuthContext);
     const [reviews, setReviews] = useState([])
+    
 
     useEffect(() => {
         fetch(`http://localhost:5000/reviews?email=${user?.email}`, {
@@ -67,6 +68,7 @@ const ReviewSection = () => {
             })
     }
 
+    
     return (
         <div>
             <h2 className="text-5xl">You have {reviews.length} Reviews</h2>
@@ -78,8 +80,8 @@ const ReviewSection = () => {
                             </th>
                             <th>Name</th>
                             <th>Email</th>
-                            <th>Phone</th>
-                            <th>reviews</th>
+                            <th>Reviews</th>
+                            <th>Status</th>
                             <th></th>
                         </tr>
                     </thead>
