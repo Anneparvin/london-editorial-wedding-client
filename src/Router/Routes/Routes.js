@@ -6,6 +6,7 @@ import Blog from "../../Pages/Blog/Blog";
 import ServiceDetails from "../../Pages/ServiceDetails/ServiceDetails";
 import ServiceSection from "../../Pages/ServiceSection/ServiceSection";
 import ReviewSection from "../../Pages/ReviewSection/ReviewSection";
+import Services from "../../Pages/Home/Services/Services";
 
 
 const { createBrowserRouter } = require("react-router-dom");
@@ -33,9 +34,13 @@ const router = createBrowserRouter([
                 element:<Blog></Blog>
             },
             {
+                path:'/services',
+                element:<Services></Services>
+            },
+            {
                 path:'/serviceDetails/:id',
                 element:<ServiceDetails></ServiceDetails>,
-                loader: ({params})=> fetch(`http://localhost:5000/services/${params.id}`)
+                loader: ({params})=> fetch(`https://y-seven-mu.vercel.app/services/${params.id}`)
             },
             {
                 path:'/serviceSection',
