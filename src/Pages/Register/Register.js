@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext} from 'react';
 import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
 import img from '../../Assets/wed-image/wed-logo.jpg';
 import { Link } from 'react-router-dom';
@@ -7,7 +7,9 @@ import { setAuthToken } from '../../api/auth';
 
 const Register = () => {
         const {createUser} = useContext(AuthContext);
+        
         useTitle('Register');
+
         const handleSignUp = event =>{
             event.preventDefault();
             const form = event.target;
@@ -20,9 +22,11 @@ const Register = () => {
                 const user = result.user;
                 console.log(user);
                 setAuthToken(user);
+            
             })
             .catch(err => console.error(err));
         }
+       
     
     return (
         <div>

@@ -14,12 +14,12 @@ const Header = () => {
 
     const menuItems = <>
     <li className='font-semibold'><Link to='/'>Home</Link></li>
+    <li className='font-semibold'><Link to='/blog'>Blog</Link></li>
     {
             user?.email ?
                 <>
-                    <li className='font-semibold'><Link to='/register'>Register</Link></li>
                     <li className='font-semibold'><Link to='/reviewSection'>ReviewSection</Link></li>
-                    <li className='font-semibold'><Link to='/blog'>Blog</Link></li>
+                    <li className='font-semibold'><Link to='/addservice'>AddService</Link></li>
                     <li className='font-semibold'>
                         <button onClick={ handleLogOut } className='btn-ghost'>Sign Out</button>
                     </li>
@@ -49,6 +49,14 @@ const Header = () => {
                     {menuItems}
                 </ul>
             </div>
+            {/* toggle button */}
+            <div className="form-control">
+        <label className="label cursor-pointer">
+            <span className="label-text">Theme</span> 
+            <input type="checkbox" className="toggle"/>
+        </label>
+        </div>
+
             <div className="navbar-end">
                 <button className="btn btn-white bg-warning">Appointment</button>
             </div>

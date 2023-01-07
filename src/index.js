@@ -1,17 +1,25 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import AuthProvider from './Contexts/AuthProvider/AuthProvider';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import AuthProvider from "./Contexts/AuthProvider/AuthProvider";
+import { PhotoProvider } from "react-photo-view";
+import "react-photo-view/dist/react-photo-view.css";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
+const queryClient = new QueryClient()
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-  <AuthProvider>
-  <App />
-  </AuthProvider>
+    <PhotoProvider>
+    <QueryClientProvider client={queryClient}>
+      <AuthProvider>
+        <App />
+      </AuthProvider>
+      </QueryClientProvider>
+    </PhotoProvider>
   </React.StrictMode>
 );
 

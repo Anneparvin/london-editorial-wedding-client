@@ -1,8 +1,8 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
 
-const ServiceSection = () => {
-    const { _id, title,service, place,date,rating,price,description,img } = useLoaderData();
+
+const ServiceSection = ({title,service, place,date,rating,price,description,img }) => {
+    // const { _id, title,service, place,date,rating,price,description,img } = useLoaderData();
 
     return (
 
@@ -14,7 +14,7 @@ const ServiceSection = () => {
       {title}
       <div className="badge badge-secondary">LONDON_WEDDING</div>
     </h2>
-    <p className='text 4xl font-bold'>Id: {_id}</p>
+    {/* <p className='text 4xl font-bold'>Id: {_id}</p> */}
     <p className='text-2xl font-bold'>{description}</p>
     <p className='text-2xl font-bold mt-4'>Service_Name: {service}</p>
     <p className='text-4xl font-bold mt-4'>Place: {place}</p>

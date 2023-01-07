@@ -4,17 +4,12 @@ import ServiceCard from './ServiceCard';
 
 const Services = () => {
     const [services, setServices] = useState([]);
-    const [visible, setVisible] = useState(3);
-    
-    useEffect( () =>{
-        fetch(`https://y-seven-mu.vercel.app/services`)
+   
+     useEffect( () =>{
+        fetch(`https://y-seven-mu.vercel.app/homeservices`)
         .then(res =>res.json())
         .then(data => setServices(data))
     }, []);
-
-    const showMore = () => {
-        setVisible((preValue) => preValue * 3)
-        }
 
     return (
         <div>
@@ -25,7 +20,7 @@ const Services = () => {
             </div>
             <div className='grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
                 {
-                    services.slice(0, visible).map(service => <ServiceCard
+                    services.map(service => <ServiceCard
                     key={service._id}
                     service={service}
                     ></ServiceCard>)
@@ -34,7 +29,7 @@ const Services = () => {
                  {/* see all button */}
         <div className='text-center ml-96'>
             <Link to="/services">
-            <button onClick={showMore} className="btn btn-primary btn-wide">See All</button>
+            <button className="btn btn-primary btn-wide">See All</button>
             </Link>
        </div>
 

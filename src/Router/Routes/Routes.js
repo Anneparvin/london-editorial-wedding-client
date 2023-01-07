@@ -6,7 +6,12 @@ import Blog from "../../Pages/Blog/Blog";
 import ServiceDetails from "../../Pages/ServiceDetails/ServiceDetails";
 import ServiceSection from "../../Pages/ServiceSection/ServiceSection";
 import ReviewSection from "../../Pages/ReviewSection/ReviewSection";
-import Services from "../../Pages/Home/Services/Services";
+import AddService from "../../Pages/AddService/AddService";
+import Checkout from "../../Pages/CheckOut/CheckOut";
+import AllServices from "../../Pages/AllServices/AllServices";
+import PrivateRoute from "../../Pages/PrivateRoute/PrivateRoute";
+
+
 
 
 const { createBrowserRouter } = require("react-router-dom");
@@ -35,11 +40,16 @@ const router = createBrowserRouter([
             },
             {
                 path:'/services',
-                element:<Services></Services>
+                element:<AllServices></AllServices>
+            },
+            {
+                path:'/addservice',
+                element:<AddService></AddService>,
+                loader: ()=> fetch(`https://y-seven-mu.vercel.app/services`)
             },
             {
                 path:'/serviceDetails/:id',
-                element:<ServiceDetails></ServiceDetails>,
+                element:<PrivateRoute><ServiceDetails></ServiceDetails></PrivateRoute>,
                 loader: ({params})=> fetch(`https://y-seven-mu.vercel.app/services/${params.id}`)
             },
             {
@@ -48,7 +58,12 @@ const router = createBrowserRouter([
             },
             {
                 path:'/reviewSection',
-                element:<ReviewSection></ReviewSection>
+                element:<PrivateRoute><ReviewSection></ReviewSection></PrivateRoute>
+            },
+            {
+                path:'/checkOut',
+                element:<Checkout></Checkout>,
+                loader: ({params})=> fetch(`https://y-seven-mu.vercel.app/services/${params.id}`)
             }
             
         ]

@@ -1,5 +1,5 @@
-import React, { useContext } from 'react';
-import { Link} from 'react-router-dom';
+import React, { useContext, useState } from 'react';
+import { Link, useLocation, useNavigate} from 'react-router-dom';
 import img from '../../Assets/wed-image/wed-logo.jpg';
 import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
  import useTitle from '../../hooks/useTitle';
@@ -7,8 +7,13 @@ import SocialLogin from '../Shared/SocialLogin/SocialLogin';
 
 const Login = () => {
     const { login } = useContext(AuthContext);
-    useTitle('Login')
+    const [loading,setLoading] = useState(true);
+    const location = useLocation();
+    const navigate = useNavigate();
 
+    const from = location.state?.from?.pathname || '/';
+
+    useTitle('Login')
 
     const handleLogin = event => {
         event.preventDefault();
@@ -17,13 +22,16 @@ const Login = () => {
         const password = form.password.value;
             
         login(email, password)
-    
+        
         .then(result =>{
             const user=result.user;
             const currentUser = {
                 email:user.email
             }
             console.log(currentUser);
+            navigate(from, {replace: true});
+
+            
              // / get jwt token
              fetch('http://localhost:5000/jwt', {
                 method: 'POST',
@@ -43,6 +51,11 @@ const Login = () => {
     
         .catch(error => console.log(error));
     }
+    if(loading){
+        return setLoading(false);
+    }
+
+    
     return (
         <div className="hero w-full my-20">
             <div className="hero-content grid gap-20 md:grid-cols-2 flex-col lg:flex-row">
