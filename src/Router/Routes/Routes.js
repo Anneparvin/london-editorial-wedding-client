@@ -67,6 +67,10 @@ const router = createBrowserRouter([
             }
             
         ]
+    },
+     {
+        path:'*',
+        element:<div className='w-9/12 mx-auto h-96'><img src='https://img.freepik.com/ree-vector/error-404-concept-illustration_114360-1811.jpg?w=2000' alt='404'/></div>
     }
 ])
 

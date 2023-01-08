@@ -54,7 +54,7 @@ const ReviewSection = () => {
 
   const handleReviewUpdate = (e,id,message) => {
     e.preventDefault();
-    // console.log(id,message)
+     console.log(id,message)
     fetch(`http://localhost:5000/reviews/${reviews.id}`, {
       method: "PATCH",
       headers: {
