@@ -1,8 +1,8 @@
-import { useQuery } from '@tanstack/react-query';
-import React, { useState } from 'react';
+// import { useQuery } from '@tanstack/react-query';
+import React from 'react';
 
-const DisplayReview = ({_id}) => {
-    const[review,setReview] = useState([]);
+const DisplayReview = ({_id,review}) => {
+    //  const[review,setReview] = useState([]);
     
     // useEffect(() => {
     //     fetch(`https://y-seven-mu.vercel.app/service-reviews?service=${_id}`)
@@ -13,21 +13,19 @@ const DisplayReview = ({_id}) => {
 
     //     console.log(review);
 
-    const { data = [], refetch, isLoading} = useQuery({
-        queryKey: ['service',_id],
-        queryFn: async () => {
-            const res = await fetch(`https://y-seven-mu.vercel.app/service-reviews?service=${_id}`)
-            const data = await res.json();
-            return data
-            .then(data => setReview(data))
-            
-        }
-    });
-    console.log(review);
+    // const { data = [], refetch, isLoading} = useQuery({
+    //     queryKey: ['service',_id],
+    //     queryFn: async () => {
+    //         const res = await fetch(`https://y-seven-mu.vercel.app/service-reviews?service=${_id}`)
+    //         const data = await res.json();
+    //         setReview(data)
+    //     }
+    // });
+    // console.log(data);
 
-    if(isLoading){
-        return <progress className="progress w-56"></progress>
-    }
+    // if(isLoading){
+    //     return <progress className="progress w-56"></progress>
+    // }
        
 
     return (
@@ -42,7 +40,7 @@ const DisplayReview = ({_id}) => {
             review.length > 0 &&
             review.map((item, index) =>
 
-                <div refetch={refetch}
+                <div
                 key={index} className="container flex flex-col w-full max-w-lg p-6 mx-auto divide-y rounded-md divide-gray-700 bg-gray-900 text-gray-100">
                 <div className="flex justify-between p-4">
                     <div className="flex space-x-4">

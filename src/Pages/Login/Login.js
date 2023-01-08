@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext} from 'react';
 import { Link, useLocation, useNavigate} from 'react-router-dom';
 import img from '../../Assets/wed-image/wed-logo.jpg';
 import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
@@ -6,8 +6,7 @@ import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
 import SocialLogin from '../Shared/SocialLogin/SocialLogin';
 
 const Login = () => {
-    const { login } = useContext(AuthContext);
-    const [loading,setLoading] = useState(true);
+    const { login} = useContext(AuthContext);
     const location = useLocation();
     const navigate = useNavigate();
 
@@ -50,9 +49,6 @@ const Login = () => {
     })
     
         .catch(error => console.log(error));
-    }
-    if(loading){
-        return setLoading(false);
     }
 
     

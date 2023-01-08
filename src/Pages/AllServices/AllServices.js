@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
 import ServiceCard from '../Home/Services/ServiceCard';
 
 const AllServices = () => {
-
+    const { loading } = useContext(AuthContext);
     const [services, setServices] = useState([]);
 
     
@@ -12,6 +13,10 @@ const AllServices = () => {
         .then(data => setServices(data))
         
     }, []);
+
+    if(loading){
+        return <progress className="progress w-56 justify-center"></progress>
+    }
 
 
     return (

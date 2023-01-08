@@ -3,7 +3,7 @@ import { useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
 
 
-const Checkout = () => {
+const Checkout = ({refetch}) => {
     const { _id, title, price } = useLoaderData();
     const { user } = useContext(AuthContext);
     const[rating,setRating] = useState(5);
@@ -42,6 +42,8 @@ const Checkout = () => {
                 if(data.acknowledged){
                     alert('Review placed successfully')
                     form.reset();
+                    refetch();
+
                     }
                 if(data > 0){
                     alert('No Reviews Were Added')

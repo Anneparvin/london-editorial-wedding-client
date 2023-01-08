@@ -57,9 +57,15 @@ const Header = () => {
         </label>
         </div>
 
-            <div className="navbar-end">
-                <button className="btn btn-white bg-warning">Appointment</button>
-            </div>
+            <div className="dropdown dropdown-end">
+                        <Link to='/profile'>
+                        <div className="w-10 rounded-full mx-2 hover:tooltip hover:tooltip-open hover:tooltip-bottom" data-tip={user?.displayName || 'User Name'}>
+                            <img className="h-10 rounded-full" src={user?.photoURL ? user.photoURL : "https://st3.depositphotos.com/6672868/13701/v/450/depositphotos_137014128-stock-illustration-user-profile-icon.jpg"} alt='dp' />
+                        </div>
+                        </Link>
+                        </div>
+
+
         </div>
         </div>
     );
